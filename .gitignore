@@ -1,0 +1,43 @@
+# 数据库文件
+*.sqlite3
+*.db
+
+# 二进制文件
+*.bin
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 虚拟环境
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+logs/
+
+# 向量数据库数据文件（保留空目录结构）
+chroma_db/*.sqlite3
+chroma_db/**/*.bin
+chroma_db/**/*.parquet
+!chroma_db/.gitkeep
