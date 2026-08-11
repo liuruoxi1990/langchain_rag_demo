@@ -41,3 +41,6 @@ chroma_db/*.sqlite3
 chroma_db/**/*.bin
 chroma_db/**/*.parquet
 !chroma_db/.gitkeep
+
+# git
+.git/

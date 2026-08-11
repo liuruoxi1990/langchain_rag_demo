@@ -128,7 +128,7 @@ from utils.config import ARK_BASE_URL
 
 ```python
 {
-    "source": "data/liuruoxi_intro.pdf",
+    "source": "data/test_intro.pdf",
     "page": 0,
     "file_type": "pdf"
 }
@@ -171,7 +171,7 @@ chunk_overlap = 150
 
 ```python
 {
-    "source": "data/liuruoxi_intro.pdf",
+    "source": "data/test_intro.pdf",
     "page": 0,
     "file_type": "pdf",
     "chunk_index": 0
@@ -248,7 +248,7 @@ python rag_vector_init.py
 例如：
 
 ```text
-刘若曦擅长哪些技术？
+XXX擅长哪些技术？
         ↓
 [0.012, -0.083, 0.027, ..., 0.041]
 ```
@@ -283,10 +283,10 @@ MMR 可以减少多个检索结果内容高度重复的问题。
 
 ```text
 [1]
-来源：data/liuruoxi_intro.pdf
+来源：data/test_intro.pdf
 位置：第 1 页
 内容：
-刘若曦是一名对人工智能和云计算充满热情的技术从业者……
+XXX是一名对人工智能和云计算充满热情的技术从业者……
 ```
 
 整理后的信息包括：
@@ -586,8 +586,7 @@ chroma_db/
 
 ```text
 data/
-├── liuruoxi_intro.pdf
-└── suzhen_intro.pdf
+└── test_intro.pdf
 ```
 
 当前支持：
@@ -612,20 +611,6 @@ python -m py_compile \
 ```
 
 命令没有输出表示语法和基础导入检查通过。
-
-也可以单独测试模块导入：
-
-```bash
-python -c "from utils.config import DATA_DIR; print(DATA_DIR)"
-```
-
-```bash
-python -c "from vector_init.ark_embedding import create_embeddings; print('导入成功')"
-```
-
-```bash
-python -c "from rag_chat.query_vectorizer import QueryVectorizer; print('导入成功')"
-```
 
 ### 4.7 初始化向量知识库
 
@@ -688,7 +673,7 @@ Embedding 模型：doubao-embedding-vision
 问答示例：
 
 ```text
-问题：刘若曦擅长哪些技术？
+问题：XXX擅长哪些技术？
 
 [1/5] 正在将问题转换为向量……
 问题向量化完成，维度：2048
@@ -699,21 +684,11 @@ Embedding 模型：doubao-embedding-vision
 [5/5] 正在调用火山方舟模型……
 
 回答：
-刘若曦擅长大模型部署、分布式推理、KV Cache 优化、
+XXX擅长大模型部署、分布式推理、KV Cache 优化、
 云原生技术以及性能评测与调优。[1]
 
 检索来源：
-[1] data/liuruoxi_intro.pdf，第 1 页
-```
-
-可以继续输入问题：
-
-```text
-苏振擅长哪些技术？
-```
-
-```text
-刘若曦和苏振的技术方向有什么不同？
+[1] data/test_intro.pdf，第 1 页
 ```
 
 如果知识库资料不足，系统应回答：
@@ -730,21 +705,3 @@ quit
 q
 ```
 
-### 4.9 运行命令汇总
-
-```bash
-cd /home/RAG
-
-source .venv/bin/activate
-
-python -m py_compile \
-  utils/*.py \
-  vector_init/*.py \
-  rag_chat/*.py \
-  rag_vector_init.py \
-  rag_chat_init.py
-
-python rag_vector_init.py
-
-python rag_chat_init.py
-```
