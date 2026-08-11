@@ -13,6 +13,8 @@
 1. 向量知识库初始化：解析、清洗和切分文档，调用火山方舟 Embedding，将向量、原文和元数据写入 Chroma。
 2. 在线知识库问答：向量化用户问题，从 Chroma 检索相关切片，构造 Prompt，调用火山方舟大语言模型生成带来源引用的回答。
 
+本项目Codex生成，供初学者了解langchain和RAG基础知识和流程，模型和API可以根据个人使用习惯进行修改
+
 > 运行要求：Python 3.10 或更高版本，推荐使用 Python 3.12。
 
 ### 主要组件
@@ -22,8 +24,7 @@
 | Python | 项目开发语言 |
 | LangChain | 编排文档、Embedding、Prompt 和模型调用 |
 | 火山方舟 Agent Plan | 提供 Embedding 和对话模型 API |
-| `doubao-embedding-vision` | 将文档切片和用户问题转换为向量 |
-| Chroma | 持久化和检索文档向量 |
+| Chroma | 持久化和检索文档向量(向量库) |
 | pypdf | 从 PDF 文件中提取文本 |
 | python-dotenv | 从 `.env` 文件加载环境变量 |
 
